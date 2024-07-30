@@ -1,34 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDebouncedCallback } from 'use-debounce';
-import Cart from "../components/Cart/Cart.jsx";
 import MenuItem from "../components/MenuItem/MenuItem.jsx";
 
 import styles from "./RestaurantView.module.css";
 import NavBar from "../components/NavBar/NavBar.jsx";
 import SearchField from "../components/SearchField/SearchField.jsx";
-import DiscountPopUp from "../components/DiscountPopUp/DiscountPopUp.jsx";
 
 const RestaurantView = () => {
-  // const [dishes, setDishes] = useState(rawDishes);
   const [dishes, setDishes] = useState([]);
-  const [selectedItems, setSelectedItems] = useState([]);
-  const [search, setSearch] = useState("a");
-
-  const handleMenuClick = (name) => {
-    let nextItems;
-
-    if (selectedItems.includes(name)) {
-      nextItems = selectedItems.filter((item) => item !== name);
-    } else {
-      nextItems = [...selectedItems, name];
-    }
-
-    setSelectedItems(nextItems);
-  };
-
-  const handleDishesFilter = (searchQuery) => {
-    setSearch(searchQuery);
-  };
 
   // useDebouncedCallback takes a function as a parameter and as the second parameter
   // the number of milliseconds it should wait until it is actually called so a user
@@ -37,7 +16,7 @@ const RestaurantView = () => {
   const debouncedEffectHook = useDebouncedCallback(() => {
     let currentEffect = true;
     fetch(
-      `https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=`
     ).then(res => {
       if (!res.ok) {
         return { meals: null };
@@ -70,19 +49,14 @@ const RestaurantView = () => {
 
   // useEffect can take a variable that is a function and does not need to be defined as an anonymous () => {} arrow function
   // This is especially important when using more controlled techniques like debouncing
-  useEffect(debouncedEffectHook, [debouncedEffectHook, search]);
+  useEffect(debouncedEffectHook, [debouncedEffectHook]);
 
   return (
     <>
       <NavBar>
         <h1>ReDI React Restaurant</h1>
 
-        <SearchField filterDishes={handleDishesFilter} />
-
-        <Cart
-          selectedItems={selectedItems}
-          onClear={() => setSelectedItems([])}
-        />
+        <SearchField />
       </NavBar>
 
       <div className={styles.restaurantWrapper}>
@@ -92,8 +66,6 @@ const RestaurantView = () => {
               <MenuItem
                 dish={dish}
                 key={dish.idMeal}
-                onClick={handleMenuClick}
-                isSelected={selectedItems.includes(dish.strMeal)}
               />
             ))
           ) : (
@@ -101,11 +73,6 @@ const RestaurantView = () => {
           )}
         </div>
       </div>
-      {selectedItems.length >= 3 && (
-        <DiscountPopUp>
-          <strong>🎉 You unlocked a 10% discount!</strong>
-        </DiscountPopUp>
-      )}
     </>
   );
 };
