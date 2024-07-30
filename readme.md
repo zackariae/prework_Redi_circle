@@ -1,13 +1,22 @@
-# REDI School Berlin 2024 Spring ReactJS Repository
+# Code Challenge
 
-Welcome to the **REDI School Berlin 2024 Spring ReactJS** repository! This repository is the home for all the lesson code used throughout our class. It's designed to be a comprehensive resource for students to engage with the material in a hands-on way.
+Our resturaunt is launching tomorrow, but we haven't been able to finish our website! Can you help us?
+
+We really need to get our search functionality finished, we've got an input field ready, but we need to complete the search functionality. Given an input string, it should return matching dishes.
+
+As a bonus, we'd really like to have a wishlist feature, where users can add (and remove) dishes. They should be able to view this list somewhere.
+
+## What we want to see
+
+- We're more interested in your thought process, rather than finished production code.
+- If you need a reminder on a certain syntax, it's fine to ask the screener, or use your preferreed search engine for a reminder.
+- It's good to ask questions! If there's anything at all you're not sure about, your screener will be happy to help.
+
 
 ## Cloning the Repository
 
-To actively participate in the coding exercises during class, you'll need to clone the repository to your local machine. Cloning allows you to pull down a copy of the code, so you can follow along and experiment on your own.
-
 ```
-git clone https://github.com/ReDI-School/react-berlin-2024-spring.git
+git clone https://github.com/ReDI-School/web-circle-excercise.git
 ```
 
 ## Running the project
@@ -22,11 +31,4 @@ Then, you can run your development server and access your application via browse
 
 ```
   npm run dev
-```
-
-## Branches
-Every lesson there will be a new branch with the relevant code for that lesson.
-
-```
-git checkout -b lesson-3-intro-to-react
 ```
