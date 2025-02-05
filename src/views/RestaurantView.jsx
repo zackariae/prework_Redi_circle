@@ -10,7 +10,7 @@ import { useDishesContext } from "../context/dishes.context.jsx";
 
 const RestaurantView = () => {
   const [dishes, setDishes] = useState([]);
-  const [allDishes, setAllDishes] = useDishesContext();
+  const {allDishes, setAllDishes} = useDishesContext();
 
   // useDebouncedCallback takes a function as a parameter and as the second parameter
   // the number of milliseconds it should wait until it is actually called so a user
@@ -32,6 +32,7 @@ const RestaurantView = () => {
       // The ?? operator turns 'undefined' or 'null' values into a preferred default value on the right side
       // We know that result.meals can be null if there are no results, so in that case, we provide an empty array for safety
       setDishes(result.meals ?? []);
+      setAllDishes(result.meals ?? []);
     }).catch(() => {
       if (!currentEffect) {
         return;

@@ -1,40 +1,39 @@
 import MenuItem from "../components/MenuItem/MenuItem.jsx";
-
 import styles from "./RestaurantView.module.css";
 import NavBar from "../components/NavBar/NavBar.jsx";
 import SearchField from "../components/SearchField/SearchField.jsx";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFavoritesContext } from "../context/favorites.jsx";
 import { useDishesContext } from "../context/dishes.context.jsx";
 
 const FavoritesView = () => {
   const { allDishes } = useDishesContext();
-  const [dishes, setDishes] = useState([]);
+ 
 
   const { favorites } = useFavoritesContext();
+  console.log(favorites);
+  const [dishes, setDishes] = useState([]);
 
-  // filter allDishes based on favorites
-  const filteredDishes = allDishes.filter((dish) => favorites.includes(dish.id));
-  setDishes(filteredDishes);
+  // ✅ Use useEffect to update state without causing an infinite loop
+  useEffect(() => {
+    const filteredDishes = allDishes.filter((dish) => favorites.includes(dish.id));
+    setDishes(filteredDishes);
+  }, [allDishes, favorites]); // Only runs when allDishes or favorites change
 
   return (
     <>
       <NavBar>
         <h1>ReDI React Restaurant</h1>
-
-        <SearchField dishes={dishes} setDishes={setDishes}/>
+        <SearchField dishes={dishes} setDishes={setDishes} />
         <Link to="/favorites">MyFavorites</Link>
       </NavBar>
 
       <div className={styles.restaurantWrapper}>
         <div className={styles.menu}>
-          {dishes.length > 0 ? (
+          {dishes?.length > 0 ? (
             dishes.map((dish) => (
-              <MenuItem
-                dish={dish}
-                key={dish.idMeal}
-              />
+              <MenuItem dish={dish} key={dish.idMeal} />
             ))
           ) : (
             <p>No dishes found :(</p>
