@@ -12,19 +12,19 @@ const FavoritesView = () => {
  
 
   const { favorites } = useFavoritesContext();
-  console.log(favorites);
+  console.log(allDishes);
   const [dishes, setDishes] = useState([]);
 
   // ✅ Use useEffect to update state without causing an infinite loop
   useEffect(() => {
-    const filteredDishes = allDishes.filter((dish) => favorites.includes(dish.id));
+    const filteredDishes = allDishes.filter((dish) => favorites.includes(dish.idMeal));
     setDishes(filteredDishes);
   }, [allDishes, favorites]); // Only runs when allDishes or favorites change
 
   return (
     <>
       <NavBar>
-        <h1>ReDI React Restaurant</h1>
+      <Link to="/"><h1>ReDI React Restaurant</h1></Link>
         <SearchField dishes={dishes} setDishes={setDishes} />
         <Link to="/favorites">MyFavorites</Link>
       </NavBar>

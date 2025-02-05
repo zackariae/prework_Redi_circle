@@ -58,7 +58,8 @@ const RestaurantView = () => {
   return (
     <>
       <NavBar>
-        <h1>ReDI React Restaurant</h1>
+        <Link to="/"><h1>ReDI React Restaurant</h1></Link>
+        
 
         <SearchField dishes={dishes} setDishes={setDishes}/>
         <Link to="/favorites">MyFavorites</Link>
