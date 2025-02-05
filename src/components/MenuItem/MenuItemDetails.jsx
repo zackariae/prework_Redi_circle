@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
 import Button from "../Button/Button";
 
 import styles from "./MenuItem.module.css";
+import { useFavoritesContext } from "../../context/favorites.jsx";
 
 
 const MenuItemDetails = () => {
+  // Get the favorite meals from the context
+  const { favorites, setFavorites } = useFavoritesContext();
   // Hold a temporary value for meal until we fetch the real data. Show a loading message while it's null
   const [meal, setMeal] = useState(null);
   // Hold a boolean value for error in case we run into an error while fetching to give the user feedback and redirect back home
@@ -67,6 +69,7 @@ const MenuItemDetails = () => {
 
   return (
     <div className={styles.menuItemDetail}>
+      <button onClick={() => setFavorites([...favorites, id])}>Add to Favorites</button>
       <Button onClick={() => navigate("/")}>return Home</Button>
       <h1>{meal.strMeal}</h1>
       <img

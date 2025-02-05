@@ -3,15 +3,17 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary.jsx";
 import MenuItemDetails from "./components/MenuItem/MenuItemDetails.jsx";
 import RestaurantView from "./views/RestaurantView.jsx";
-
 import "./App.css";
+import FavoritesView from "./views/FavoritesView.jsx";
 
 function App() {
   return (
+  
     <Router>
       <Routes>
         <Route index element={<RestaurantView />} />
         <Route path="/meals/:id" element={<MenuItemDetails />} />
+        <Route path="/favorites" element={<FavoritesView />} />
         <Route path="/*" element={<p>404 Page not found</p>} />
       </Routes>
     </Router>
