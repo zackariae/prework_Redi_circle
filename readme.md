@@ -22,16 +22,3 @@ As a bonus, we'd really like to have a wishlist feature, where users can add (an
 git clone https://github.com/ReDI-School/web-circle-excercise.git
 ```
 
-## Running the project
-
-To run this project, you need to first download and install all the dependencies.
-
-```
- npm install
-```
-
-Then, you can run your development server and access your application via browser (default [http://localhost:5173/](http://localhost:5173/)).
-
-```
-  npm run dev
-```
