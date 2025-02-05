@@ -1,5 +1,8 @@
 # Code Challenge
+[]Search Functionality_
+[]Wishlist_
 
+## What we're looking for
 Our resturaunt is launching tomorrow, but we haven't been able to finish our website! Can you help us?
 
 We really need to get our search functionality finished, we've got an input field ready, but we need to complete the search functionality. Given an input string, it should return matching dishes.
