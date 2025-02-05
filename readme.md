@@ -1,24 +1,29 @@
-# Code Challenge
-[]Search Functionality_
-[]Wishlist_
+# 🍽️ ReDI Restaurant - Code Challenge  
 
-## What we're looking for
-Our resturaunt is launching tomorrow, but we haven't been able to finish our website! Can you help us?
+Our restaurant is launching tomorrow, but we haven't been able to finish our website! Can you help us?  
 
-We really need to get our search functionality finished, we've got an input field ready, but we need to complete the search functionality. Given an input string, it should return matching dishes.
+We've made some improvements, including:  
+- ✅ **Search functionality**: Users can search for dishes using the input field.  
+- ✅ **Favorites feature**: Users can add or remove dishes from their favorites and view them in a dedicated section.  
 
-As a bonus, we'd really like to have a wishlist feature, where users can add (and remove) dishes. They should be able to view this list somewhere.
+---
 
-## What we want to see
+## 🚀 Features  
 
-- We're more interested in your thought process, rather than finished production code.
-- If you need a reminder on a certain syntax, it's fine to ask the screener, or use your preferreed search engine for a reminder.
-- It's good to ask questions! If there's anything at all you're not sure about, your screener will be happy to help.
+### 🔍 Search Functionality  
+- Users can search for dishes by entering a query in the search bar.  
+- The list dynamically updates to show matching dishes.  
 
+### ❤️ Favorites (Wishlist)  
+- Users can mark dishes as favorites.  
+- A dedicated **Favorites page** (`/favorites`) displays all favorited dishes.  
+- Users can remove dishes from their favorites at any time.  
 
-## Cloning the Repository
+---
 
-```
+## 📂 Project Setup  
+
+### 🔧 Cloning the Repository  
+```sh
 git clone https://github.com/ReDI-School/web-circle-excercise.git
-```
-
+cd web-circle-excercise
